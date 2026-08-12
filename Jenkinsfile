@@ -24,7 +24,7 @@ git branch: 'main', url: 'https://github.com/akshayshetty7709-tech/docker-compos
                 withSonarQubeEnv('SonarQube') {
                     sh """
                     ${SCANNER_HOME}/bin/sonar-scanner \
-                    -Dsonar.projectKey=gatewayservice \
+                    -Dsonar.projectKey=Docker-compose-demo2 \
                     -Dsonar.sources=.
                     """
                 }
