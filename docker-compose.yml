@@ -1,0 +1,42 @@
+version: "3.9"
+
+services:
+  service-a:
+    build:
+      context: ./service-a
+      dockerfile: Dockerfile
+    image: ${HARBOR_REGISTRY}/${HARBOR_PROJECT}/service-a:latest
+    container_name: service-a
+    ports:
+      - "3001:3000"
+
+  service-b:
+    build:
+      context: ./service-b
+      dockerfile: Dockerfile
+    image: ${HARBOR_REGISTRY}/${HARBOR_PROJECT}/service-b:latest
+    container_name: service-b
+    ports:
+      - "3002:3000"
+
+  service-c:
+    build:
+      context: ./service-c
+      dockerfile: Dockerfile
+    image: ${HARBOR_REGISTRY}/${HARBOR_PROJECT}/service-c:latest
+    container_name: service-c
+    ports:
+      - "3003:3000"
+
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+    depends_on:
+      - service-a
+      - service-b
+      - service-c

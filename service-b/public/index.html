@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ControlDeck — Deploy with confidence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">◈</span>
+      <span class="brand-word">ControlDeck</span>
+    </div>
+
+    <nav class="topnav">
+      <a class="topnav-item active" href="#">Overview</a>
+      <a class="topnav-item" href="#">Pipelines</a>
+      <a class="topnav-item" href="#">Infrastructure</a>
+      <a class="topnav-item" href="#">Incidents</a>
+      <a class="topnav-item" href="#">Logs</a>
+    </nav>
+
+    <div class="topbar-right">
+      <select class="env-select" aria-label="Environment">
+        <option>production</option>
+        <option>staging</option>
+        <option>dev</option>
+      </select>
+      <div class="avatar">OP</div>
+    </div>
+  </header>
+
+  <main class="content">
+
+    <section class="stat-row" id="statRow">
+      <!-- stat cards injected by script.js -->
+    </section>
+
+    <section class="panel-row">
+      <div class="panel panel-wide">
+        <div class="panel-head">
+          <h2>Pipelines</h2>
+          <span class="panel-sub">last 24h</span>
+        </div>
+        <table class="pipeline-table">
+          <thead>
+            <tr><th>Pipeline</th><th>Branch</th><th>Status</th><th>Duration</th><th>Triggered</th></tr>
+          </thead>
+          <tbody id="pipelineBody"></tbody>
+        </table>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Infrastructure</h2>
+          <span class="panel-sub">6 services</span>
+        </div>
+        <div class="infra-list" id="infraList"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Deploy log</h2>
+        <span class="panel-sub live"><span class="pulse-dot"></span>live</span>
+      </div>
+      <div class="log-terminal" id="logTerminal"></div>
+    </section>
+
+  </main>
+
+  <script src="/script.js"></script>
+</body>
+</html>
