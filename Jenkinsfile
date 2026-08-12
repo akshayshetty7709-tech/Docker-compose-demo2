@@ -16,7 +16,7 @@ environment {
 stages {
 stage ('1.checkout') {
 steps {
-git branch: 'main', url: 'https://github.com/akshayshetty7709-tech/docker-compose-demo.git'
+git branch: 'main', url: 'https://github.com/akshayshetty7709-tech/Docker-compose-demo2.git'
 }
 }
  stage('2.SonarQube Scan') {
