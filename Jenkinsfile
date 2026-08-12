@@ -54,6 +54,11 @@ git branch: 'main', url: 'https://github.com/akshayshetty7709-tech/docker-compos
 stage ('5.build') {
 steps {
 sh """
+echo "=== DEBUG ==="
+echo "HARBOR_REGISTRY=[$HARBOR_REGISTRY]"
+echo "HARBOR_PROJECT=[$HARBOR_PROJECT]"
+docker compose config
+echo "=== END DEBUG ==="
 docker compose up --build -d 
 docker compose push
 """
